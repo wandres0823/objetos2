@@ -5,7 +5,7 @@
  */
 package interfaz;
 
-import clase.DenominadorCeroException;
+import Excepciones.DenominadorCeroException;
 import clase.Mixto;
 import javax.swing.JOptionPane;
 
@@ -326,8 +326,7 @@ int numerador, denominador, n1, n2, n3, num, dem;
                 txtDenominador3.setText("" + f3.getDenominador());
 
             } catch (DenominadorCeroException e) {
-                getToolkit().beep();
-                JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 
             }
         

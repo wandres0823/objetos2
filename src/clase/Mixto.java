@@ -5,6 +5,8 @@
  */
 package clase;
 
+import Excepciones.DenominadorCeroException;
+
 /**
  *
  * @author adalberto
@@ -16,12 +18,15 @@ public class Mixto {
     
     
     public Mixto (int entero, int numerador, int denominador) throws DenominadorCeroException{
+        if(denominador == 0){
+            throw new DenominadorCeroException("el denominador no puede tener cero");
+        }
+        
+        
         this.entero = entero;
         this.numerador= numerador;
         this.denominador= denominador;
-         if(denominador ==0){
-             throw new DenominadorCeroException();
-         }
+         
     }
 
     public int getEntero() {
@@ -33,6 +38,7 @@ public class Mixto {
     }
 
     public int getDenominador() {
+        
         return denominador;
     }
 
@@ -44,9 +50,13 @@ public class Mixto {
         this.numerador = numerador;
     }
 
-    public void setDenominador(int denominador) {
+    public void setDenominador(int denominador) throws DenominadorCeroException {
+        if(denominador == 0){
+            throw new DenominadorCeroException("el denominador no puede tener cero");
+        }
         this.denominador = denominador;
     }
+    
     public Mixto sumar(Mixto f2) throws DenominadorCeroException {
     Mixto f;
     int enter,nume, den,nfra1,nfra2,numeres,deres;    
